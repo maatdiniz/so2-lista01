@@ -1,0 +1,18 @@
+# Binários compilados
+ex01
+ex02
+ex03
+ex04
+ex05
+ex06
+ex07
+ex08
+ex09
+ex10
+
+# Arquivos temporários e artefatos de execução
+dados_ex06.bin
+pipeline_output.csv
+*.o
+*.dSYM/
+.DS_Store
