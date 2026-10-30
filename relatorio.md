@@ -8,6 +8,8 @@
 
 ## Como Compilar e Executar
 
+### No macOS e Linux (Nativo)
+
 O repositório conta com um `Makefile` automatizado para compilar e executar todos os 10 exercícios com flags estritas de verificação (`-Wall -Wextra -O2 -pthread`).
 
 ```bash
@@ -20,6 +22,24 @@ make run
 # Limpar binários e arquivos temporários gerados nos testes
 make clean
 ```
+
+### No Windows
+
+Como a lista utiliza a API **POSIX Threads (`pthread`)** e chamadas POSIX como `usleep` e `pread`, no Windows a compilação requer um ambiente que forneça suporte POSIX:
+
+1. **WSL (Windows Subsystem for Linux) — *Recomendado*:**
+   - Abra o terminal do Ubuntu/WSL e execute normalmente:
+     ```bash
+     sudo apt update && sudo apt install build-essential -y
+     make run
+     ```
+2. **MSYS2 / MinGW-w64:**
+   - Instale o pacote `mingw-w64-x86_64-gcc` e `make`, e execute `make run` via terminal MinGW64.
+3. **Docker:**
+   - Em qualquer sistema (incluindo Windows com Docker Desktop):
+     ```bash
+     docker run --rm -v "$PWD":/app -w /app gcc:latest bash -c "make run"
+     ```
 
 Também é possível executar qualquer exercício individualmente:
 
